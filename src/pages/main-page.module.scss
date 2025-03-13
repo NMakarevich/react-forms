@@ -1,0 +1,13 @@
+.history {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 90vh;
+  overflow-y: scroll;
+  box-shadow: 2px 2px 4px 2px rgb(202 196 208 / 30%);
+}
+
+@media (width <= 840px) {
+  .history {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,20 @@
+.nav {
+  &Bar {
+    display: flex;
+    gap: 20px;
+
+    &Link {
+      color: #E6E0E9;
+      text-decoration: none;
+      transition: color 0.3s;
+
+      &:hover {
+        color: #E8DEF8;
+      }
+
+      &[class*="active"] {
+        color: #D0BCFF;
+      }
+    }
+  }
+}

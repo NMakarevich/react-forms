@@ -1,0 +1,48 @@
+.card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  border: 2px solid #EFB8C8;
+  border-radius: 5px;
+
+  &:nth-child(2) {
+    animation: border;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+  }
+
+  &Image {
+    align-self: center;
+    width: 50%;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    list-style: none;
+
+    &Item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+}
+
+@keyframes border {
+  0% {
+    border-color: #4F378B;
+  }
+
+  80% {
+    border-color: #4F378B;
+  }
+
+  100% {
+    border-color: #EFB8C8;
+  }
+}

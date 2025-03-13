@@ -1,0 +1,22 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 450px;
+  padding: 10px;
+  box-shadow: 2px 2px 4px rgb(202 196 208 / 30%);
+
+  &Submit {
+    padding: 8px;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #381E72;
+    background-color: #D0BCFF;
+    border: none;
+    box-shadow: 2px 2px 2px rgb(234 221 255 / 30%);
+
+    &:not(:disabled) {
+      cursor: pointer;
+    }
+  }
+}
