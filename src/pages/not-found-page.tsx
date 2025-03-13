@@ -1,7 +1,7 @@
 import { ReactElement } from 'react';
 
 function NotFoundPage(): ReactElement {
-  return <></>;
+  return <h2>Page is not found</h2>;
 }
 
 export default NotFoundPage;
