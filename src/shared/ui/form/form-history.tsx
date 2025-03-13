@@ -14,8 +14,11 @@ export function FormHistory({ forms, title }: Props): ReactElement {
     <>
       <div className={styles.formHistory}>
         <h3 className={styles.formHistoryTitle}>{title}</h3>
-        {!!forms.length &&
-          forms.map((form, index) => <FormCard key={index} form={form} />)}
+        {forms.length ? (
+          forms.map((form, index) => <FormCard key={index} form={form} />)
+        ) : (
+          <span>No forms submitted</span>
+        )}
       </div>
     </>
   );
