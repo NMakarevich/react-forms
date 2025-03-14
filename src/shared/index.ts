@@ -8,7 +8,9 @@ export { FormField } from './ui/form/form-field';
 export { FormGroup } from './ui/form/form-group';
 
 export { FormHistory } from './ui/form/form-history';
+
 export { Layout } from './ui/layout';
+export { PasswordStrength } from './ui/form/password-strenght.tsx';
 
 export { routes } from './helpers/routes';
 

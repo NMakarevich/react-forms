@@ -30,6 +30,7 @@ export function FormField(props: InputFieldProps) {
             onClick={handleShowPassword}
           ></button>
         </div>
+        {props.component}
         <span className={styles.formFieldError}>{props.error}</span>
       </div>
     );
@@ -42,6 +43,7 @@ export function FormField(props: InputFieldProps) {
           <input {...props} {...props.register} />
           <label htmlFor={props.id}>{props.label}</label>
         </div>
+        {props.component}
       </div>
     );
   }
@@ -59,6 +61,7 @@ export function FormField(props: InputFieldProps) {
           ))}
         </datalist>
       )}
+      {props.component}
       <span className={styles.formFieldError}>{props.error}</span>
     </div>
   );

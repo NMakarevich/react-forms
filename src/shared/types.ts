@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { UseFormRegisterReturn } from 'react-hook-form';
 
 export interface IRoute {
@@ -27,6 +27,7 @@ export interface InputFieldProps extends React.ComponentProps<'input'> {
   label?: string;
   error?: string;
   datalist?: string[];
+  component?: ReactNode;
 }
 
 export interface GroupFieldProps {
