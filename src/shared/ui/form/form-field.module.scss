@@ -26,6 +26,11 @@
         cursor: pointer;
         background-color: transparent;
         border: none;
+        transition: transform 0.3s;
+
+        &:hover {
+          transform: scale(1.05);
+        }
 
         &::before {
           position: absolute;
@@ -87,7 +92,12 @@
         padding: 10px;
         cursor: pointer;
         background-color: #4A4458;
-        border: 1px solid rgb(0 0 0 / 30%);
+        border: 1px solid rgb(230 224 233 / 30%);
+        transition: border-color 0.3s;
+
+        &:hover {
+          border-color: rgb(230 224 233 / 80%);
+        }
       }
 
       input {

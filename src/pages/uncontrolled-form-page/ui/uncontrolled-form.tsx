@@ -14,7 +14,7 @@ import { addUncontrolledForm } from '@shared/store/forms-slice.ts';
 import { useNavigate } from 'react-router';
 import { ValidationError } from 'yup';
 
-import styles from '../../form.module.scss';
+import styles from '../../../shared/ui/form/form.module.scss';
 
 export function UncontrolledForm() {
   const navigate = useNavigate();

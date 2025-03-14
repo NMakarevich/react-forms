@@ -13,7 +13,7 @@ import { addControlledForm } from '@shared/store/forms-slice.ts';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
 
-import styles from '../../form.module.scss';
+import styles from '../../../shared/ui/form/form.module.scss';
 
 export function ControlledForm() {
   const navigate = useNavigate();
