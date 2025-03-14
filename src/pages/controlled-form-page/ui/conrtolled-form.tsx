@@ -1,9 +1,11 @@
+import { ChangeEvent, useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
   FormField,
   FormGroup,
   GroupFieldProps,
   InputFieldProps,
+  PasswordStrength,
   schema,
   selectCountries,
   useAppDispatch,
@@ -27,6 +29,7 @@ export function ControlledForm() {
   });
   const dispatch = useAppDispatch();
   const countries = useAppSelector(selectCountries);
+  const [password, setPassword] = useState('');
 
   const onSubmit = handleSubmit((data) => {
     const reader = new FileReader();
@@ -43,6 +46,10 @@ export function ControlledForm() {
       };
     }
   });
+
+  function handleChange(event: ChangeEvent<HTMLInputElement>) {
+    setPassword(event.target.value);
+  }
 
   const form: (GroupFieldProps | InputFieldProps)[] = [
     {
@@ -75,7 +82,8 @@ export function ControlledForm() {
       name: 'password',
       type: 'password',
       id: 'password',
-      register: register('password'),
+      register: register('password', { onChange: handleChange }),
+      component: <PasswordStrength password={password} />,
     },
     {
       error: errors.confirmPassword?.message,

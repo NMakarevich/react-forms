@@ -5,6 +5,7 @@ import {
   GroupFieldProps,
   IForm,
   InputFieldProps,
+  PasswordStrength,
   schema,
   selectCountries,
   useAppDispatch,
@@ -19,8 +20,10 @@ import styles from '../../../shared/ui/form/form.module.scss';
 export function UncontrolledForm() {
   const navigate = useNavigate();
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [password, setPassword] = useState('');
   const dispatch = useAppDispatch();
   const countries = useAppSelector(selectCountries);
+
   const form: (GroupFieldProps | InputFieldProps)[] = [
     {
       label: 'Name',
@@ -45,6 +48,7 @@ export function UncontrolledForm() {
       name: 'password',
       type: 'password',
       id: 'password',
+      component: <PasswordStrength password={password} />,
     },
     {
       label: 'Confirm password',
@@ -126,6 +130,7 @@ export function UncontrolledForm() {
         };
       }
     } catch (error) {
+      setPassword(currentTarget.password.value);
       if (error instanceof ValidationError) {
         const errors = error.inner.reduce(
           (acc: { [key: string]: string }, err) => {
