@@ -24,18 +24,18 @@ export const schema = yup.object().shape({
     .required('Please enter email'),
   password: yup
     .string()
+    .required('Please enter password')
     .matches(/(?=.*\d)/g, 'Should contain at least one number')
     .matches(/(?=.*[A-Z|А-Я])/g, 'Should contain at least one uppercase letter')
     .matches(/(?=.*[a-z|а-я])/g, 'Should contain at least one lowercase letter')
     .matches(
       /(?=.*[@$!%*?&])/g,
       'Should contain at least one special character'
-    )
-    .required('Please enter password'),
+    ),
   confirmPassword: yup
     .string()
-    .oneOf([yup.ref('password')], 'Passwords must match')
-    .required('Please confirm your password'),
+    .required('Please confirm your password')
+    .oneOf([yup.ref('password')], 'Passwords must match'),
   gender: yup.string<'male' | 'female'>().required('Please select gender'),
   picture: mixed<FileList>()
     .test(
