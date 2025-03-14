@@ -4,6 +4,38 @@
     flex-direction: column;
     gap: 5px;
 
+    &Password {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      input {
+        flex: 1;
+      }
+
+      &Button {
+        position: absolute;
+        right: 8px;
+        z-index: 2;
+        width: 24px;
+        height: 24px;
+        outline: none;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        border: none;
+      }
+
+      &Show {
+        background-image: url('/visibility_off.png');
+      }
+
+      &Hide {
+        background-image: url("/visibility.png");
+      }
+    }
+
     input {
       padding: 8px 12px;
       color: #332D41;
