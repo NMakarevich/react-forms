@@ -30,6 +30,7 @@ export function ControlledForm() {
   const dispatch = useAppDispatch();
   const countries = useAppSelector(selectCountries);
   const [password, setPassword] = useState('');
+  const [pictureName, setPictureName] = useState('');
 
   const onSubmit = handleSubmit((data) => {
     const reader = new FileReader();
@@ -49,6 +50,13 @@ export function ControlledForm() {
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     setPassword(event.target.value);
+  }
+
+  function handleSelectPicture(event: ChangeEvent<HTMLInputElement>) {
+    if (!event.target.files) return;
+    const file = event.target.files[0];
+    if (file) setPictureName(file.name);
+    else setPictureName('');
   }
 
   const form: (GroupFieldProps | InputFieldProps)[] = [
@@ -117,10 +125,10 @@ export function ControlledForm() {
     },
     {
       error: errors.picture?.message,
-      label: 'Select picture',
+      label: pictureName ? `File: ${pictureName}` : 'Select picture',
       type: 'file',
       id: 'picture',
-      register: register('picture'),
+      register: register('picture', { onChange: handleSelectPicture }),
     },
     {
       error: errors.country?.message,

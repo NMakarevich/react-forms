@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import {
   FormField,
   FormGroup,
@@ -23,6 +23,7 @@ export function UncontrolledForm() {
   const [password, setPassword] = useState('');
   const dispatch = useAppDispatch();
   const countries = useAppSelector(selectCountries);
+  const [pictureName, setPictureName] = useState('');
 
   const form: (GroupFieldProps | InputFieldProps)[] = [
     {
@@ -76,9 +77,10 @@ export function UncontrolledForm() {
       ],
     },
     {
-      label: 'Select picture',
+      label: pictureName ? `File: ${pictureName}` : 'Select picture',
       type: 'file',
       id: 'picture',
+      onChange: handleSelectPicture,
     },
     {
       label: 'Country',
@@ -93,6 +95,13 @@ export function UncontrolledForm() {
       id: 'acceptTerms',
     },
   ];
+
+  function handleSelectPicture(event: ChangeEvent<HTMLInputElement>) {
+    if (!event.target.files) return;
+    const file = event.target.files[0];
+    if (file) setPictureName(file.name);
+    else setPictureName('');
+  }
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
