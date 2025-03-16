@@ -10,19 +10,6 @@ export function FormField(props: InputFieldProps) {
     setShowPassword(!showPassword);
   }
 
-  if (props.type === 'file') {
-    return (
-      <div className={styles.formField}>
-        <label htmlFor={props.id}>
-          <span>{props.label}</span>
-        </label>
-        <input {...props} {...props.register} />
-        {props.component}
-        <span className={styles.formFieldError}>{props.error}</span>
-      </div>
-    );
-  }
-
   if (props.type === 'password') {
     return (
       <div className={styles.formField}>
