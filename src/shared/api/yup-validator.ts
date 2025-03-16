@@ -21,6 +21,10 @@ export const schema = yup.object().shape({
   email: yup
     .string()
     .email('Please enter valid email')
+    .matches(
+      /^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gm,
+      'Please enter valid email'
+    )
     .required('Please enter email'),
   password: yup
     .string()
