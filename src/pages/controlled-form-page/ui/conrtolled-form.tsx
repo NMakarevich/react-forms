@@ -8,6 +8,7 @@ import {
   PasswordStrength,
   schema,
   selectCountries,
+  shortFileName,
   useAppDispatch,
   useAppSelector,
 } from '@shared/index';
@@ -125,7 +126,9 @@ export function ControlledForm() {
     },
     {
       error: errors.picture?.message,
-      label: pictureName ? `File: ${pictureName}` : 'Select picture',
+      label: pictureName
+        ? `File: ${shortFileName(pictureName)}`
+        : 'Select picture',
       type: 'file',
       id: 'picture',
       register: register('picture', { onChange: handleSelectPicture }),

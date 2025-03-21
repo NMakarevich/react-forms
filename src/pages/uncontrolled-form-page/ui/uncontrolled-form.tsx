@@ -8,6 +8,7 @@ import {
   PasswordStrength,
   schema,
   selectCountries,
+  shortFileName,
   useAppDispatch,
   useAppSelector,
 } from '@shared/index';
@@ -77,7 +78,9 @@ export function UncontrolledForm() {
       ],
     },
     {
-      label: pictureName ? `File: ${pictureName}` : 'Select picture',
+      label: pictureName
+        ? `File: ${shortFileName(pictureName)}`
+        : 'Select picture',
       type: 'file',
       id: 'picture',
       onChange: handleSelectPicture,
