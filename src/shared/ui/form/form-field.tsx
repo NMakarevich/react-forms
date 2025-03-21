@@ -44,6 +44,7 @@ export function FormField(props: InputFieldProps) {
           <label htmlFor={props.id}>{props.label}</label>
         </div>
         {props.component}
+        <span className={styles.formFieldError}>{props.error}</span>
       </div>
     );
   }
