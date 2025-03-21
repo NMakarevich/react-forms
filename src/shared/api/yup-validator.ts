@@ -47,10 +47,14 @@ export const schema = yup.object().shape({
       'Please select picture',
       (value) => !!value?.length
     )
-    .test('fileSize', 'File size is too large', (value) => {
-      if (!value || !value.length) return false;
-      return value[0].size <= MAX_FILE_SIZE;
-    })
+    .test(
+      'fileSize',
+      'File size is too large. Max file size is 1MB',
+      (value) => {
+        if (!value || !value.length) return false;
+        return value[0].size <= MAX_FILE_SIZE;
+      }
+    )
     .test({
       message: 'Please provide a supported file type: png, jpg, jpeg',
       test: (value) => {
