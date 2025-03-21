@@ -1,0 +1,24 @@
+.form {
+  &Group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &Fields {
+      display: flex;
+      gap: 15px;
+
+      [class*='formField'] {
+        flex-direction: row;
+      }
+    }
+
+    &Error {
+      min-height: 18px;
+      font-size: 14px;
+      line-height: 18px;
+      vertical-align: top;
+      color: #F2B8B5;
+    }
+  }
+}
