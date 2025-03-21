@@ -21,6 +21,8 @@ export {
 } from './store/forms-slice';
 export { selectCountries } from './store/countries-slice';
 
+export { shortFileName } from './utils/short-file-name';
+
 export { store } from './store/store';
 
 export { useAppDispatch, useAppSelector } from './hooks/store-hooks';
